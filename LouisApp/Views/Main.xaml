@@ -1,24 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="LouisApp.Views.Main">
+
     <ContentPage.Content>
         <VerticalStackLayout Padding="20">
             <Label Text="Application sur les pays"
                    FontSize="24"
                    FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
+                   HorizontalOptions="Center" />
 
             <Label Text="Venez découvrir les cultures du monde"
                    FontSize="18"
                    TextColor="Gray"
-                   HorizontalOptions="Center"/>
+                   HorizontalOptions="Center" />
+
             <Grid Padding="10" ColumnDefinitions="*,*">
-                <Image Source="corfu.jpg" Margin="5" Grid.Column="0" HeightRequest="250"/>
-                <Image Source="paris.jpg" Margin="5" Grid.Column="1" HeightRequest="250"/>
+                <Image Source="corfu.jpg" Margin="5" Grid.Column="0" HeightRequest="250" />
+                <Image Source="paris.jpg" Margin="5" Grid.Column="1" HeightRequest="250" />
             </Grid>
-            <Button Text="cliquez!!"  Clicked="OnNavigateButtonClicked" />
+
+            
+            <CarouselView>
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>corfu.jpg</x:String>
+                        <x:String>paris.jpg</x:String>
+                        <x:String>new_york.jpg</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding .}" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="CenterAndExpand" 
+                               HeightRequest="300"
+                               WidthRequest="400"
+                               />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            
+            <Button Text="Cliquez ici pour naviguer"
+                    Clicked="OnNavigateButtonClicked"
+                    HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
