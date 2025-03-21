@@ -4,6 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LouisApp.Views.Main">
     <ContentPage.Content>
-        
+        <VerticalStackLayout Padding="20">
+            <Label Text="Application sur les pays"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Venez découvrir les cultures du monde"
+                   FontSize="18"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+            <Grid Padding="10" ColumnDefinitions="*,*">
+                <Image Source="corfu.jpg" Margin="5" Grid.Column="0" HeightRequest="250"/>
+                <Image Source="paris.jpg" Margin="5" Grid.Column="1" HeightRequest="250"/>
+            </Grid>
+            <Button Text="cliquez!!"  Clicked="OnNavigateButtonClicked" />
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

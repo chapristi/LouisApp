@@ -12,4 +12,10 @@ public partial class Main : ContentPage
     {
         InitializeComponent();
     }
+    private async void OnNavigateButtonClicked(object sender, EventArgs e)
+    {
+        
+        await Navigation.PushAsync(new Gif());
+    }
+    
 }
