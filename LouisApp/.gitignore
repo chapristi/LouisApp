@@ -1,0 +1,30 @@
+﻿# 📁 Dossiers générés automatiquement
+bin/
+obj/
+platforms/
+AppPackages/
+.nuget/
+
+# 🔧 Fichiers spécifiques à .NET
+*.user
+*.suo
+*.sln.cache
+*.pdb
+*.log
+*.db
+
+# 📱 Android
+*.apk
+*.aab
+.android/
+
+# 🍏 iOS / Mac
+*.ipa
+*.xcuserstate
+*.xcworkspace
+*.DS_Store
+
+# 🏗️ Build / Déploiement
+**/bin/
+**/obj/
+**/platforms/
