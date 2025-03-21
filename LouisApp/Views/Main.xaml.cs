@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LouisApp.Views;
 
-public partial class Test : ContentPage
+public partial class Main : ContentPage
 {
-    public Test()
+    public Main()
     {
         InitializeComponent();
     }

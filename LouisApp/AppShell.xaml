@@ -6,24 +6,28 @@
     xmlns:local="clr-namespace:LouisApp"
     Shell.FlyoutBehavior="Disabled"
     xmlns:view="clr-namespace:LouisApp.Views"
+    Shell.TabBarForegroundColor="Crimson"
+    Shell.TabBarTitleColor="Crimson"
+    Shell.TabBarUnselectedColor="Gray"
+    Shell.TabBarBackgroundColor="White"
     Title="LouisApp">
     
     <TabBar>
         <Tab Title="Home"
              Icon="home.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Test}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
         </Tab>
         <Tab Title="Api"
              Icon="api.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Test}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
         </Tab>
         <Tab Title="Ajout"
              Icon="add.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Test}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
         </Tab>
         <Tab Title="Fun"
              Icon="party.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Test}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
         </Tab>
     </TabBar>
 </Shell>
