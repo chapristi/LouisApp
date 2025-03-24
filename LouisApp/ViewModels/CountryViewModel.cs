@@ -28,11 +28,10 @@ namespace LouisApp.ViewModels
             Debug.WriteLine("Hello from .NET MAUI!");
             Debug.WriteLine(countries);
             Countries.Clear();
-            Countries.Add(countries[0]);
-            Countries.Add(countries[1]);
-
-
-           
+            foreach (Country country in countries)
+            {
+                Countries.Add(country);
+            }
         }
     }
 }

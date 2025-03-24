@@ -6,12 +6,12 @@
     xmlns:local="clr-namespace:LouisApp"
     Shell.FlyoutBehavior="Disabled"
     xmlns:view="clr-namespace:LouisApp.Views"
-    Shell.TabBarForegroundColor="Crimson"
-    Shell.TabBarTitleColor="Crimson"
+    Shell.TabBarForegroundColor=" #4361EE"
+    Shell.TabBarTitleColor="#2B3A67"
     Shell.TabBarUnselectedColor="Gray"
     Shell.TabBarBackgroundColor="White"
     Title="LouisApp">
-    
+
     <TabBar>
         <Tab Title="Home"
              Icon="home.png">
