@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LouisApp.Views.Modals.CountryModal"
+             xmlns:local="clr-namespace:LouisApp.ViewModels">
+
+    <StackLayout Padding="10" BackgroundColor="#F4F4F4">
+        <Label Text="{Binding name}"
+               FontSize="26"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,20,0,10"
+               TextColor="#333333"/>
+        <Image Source="{Binding media.flag}"/>
+        
+        <StackLayout Padding="10" BackgroundColor="White" Spacing="15" Margin="0,5">
+            <HorizontalStackLayout>
+                <Label Text="Capitale: " FontAttributes="Bold" TextColor="#333333" FontSize="18"/>
+                <Label Text="{Binding capital}" FontSize="18" TextColor="#333333" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="Monnaie: " FontAttributes="Bold" TextColor="#333333" FontSize="18"/>
+                <Label Text="{Binding currency}" FontSize="18" TextColor="#333333" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="Population: " FontAttributes="Bold" TextColor="#333333" FontSize="18"/>
+                <Label Text="{Binding population}" FontSize="18" TextColor="#333333" />
+            </HorizontalStackLayout>
+            
+            <Button Text="Fermer" 
+                    Clicked="OnCloseModalClicked"
+                    BackgroundColor="#4361EE"
+                    TextColor="White"
+                    Margin="0,20,0,0" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
