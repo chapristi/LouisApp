@@ -11,6 +11,7 @@ namespace LouisApp.ViewModels
         private readonly CountryService _countryService;
         public ObservableCollection<Country> Countries { get; set; }
 
+      
         public CountryViewModel()
         {
             _countryService = new CountryService();
@@ -28,10 +29,10 @@ namespace LouisApp.ViewModels
             Debug.WriteLine("Hello from .NET MAUI!");
             Debug.WriteLine(countries);
             Countries.Clear();
-            foreach (Country country in countries)
-            {
-                Countries.Add(country);
-            }
+           foreach (Country country in countries.Take(50))
+           {
+               Countries.Add(country);
+           }
         }
     }
 }

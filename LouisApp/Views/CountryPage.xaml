@@ -4,13 +4,12 @@
              x:Class="LouisApp.Views.CountryPage"
              xmlns:local="clr-namespace:LouisApp.ViewModels">
     
-
     <ContentPage.BindingContext>
         <local:CountryViewModel />
     </ContentPage.BindingContext>
     
     <StackLayout Padding="10" BackgroundColor="#F4F4F4">
-        <Label Text="Liste des pays"
+        <Label Text="🌍 Liste des Pays"
                FontSize="26"
                FontAttributes="Bold"
                HorizontalOptions="Center"

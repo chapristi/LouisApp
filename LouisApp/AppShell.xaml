@@ -23,7 +23,7 @@
         </Tab>
         <Tab Title="Ajout"
              Icon="add.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Add}" />
         </Tab>
         <Tab Title="Fun"
              Icon="party.png">
