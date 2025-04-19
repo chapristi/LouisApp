@@ -1,29 +1,31 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LouisApp.Views.Add"
-             Title="Add a New Country">
+             Title="Ajouter un Nouveau Pays">
 
     <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label Text="Country Name" />
-        <Entry Text="{Binding NewCountry.name}" Placeholder="Enter country name" />
+        <Label Text="Nom du pays" />
+        <Entry Text="{Binding NewCountry.name}" Placeholder="Entrez le nom du pays" />
 
-        <Label Text="Capital" />
-        <Entry Text="{Binding NewCountry.capital}" Placeholder="Enter capital" />
+        <Label Text="Capitale" />
+        <Entry Text="{Binding NewCountry.capital}" Placeholder="Entrez la capitale" />
 
-        <Label Text="Currency" />
-        <Entry Text="{Binding NewCountry.currency}" Placeholder="Enter currency" />
+        <Label Text="Monnaie" />
+        <Entry Text="{Binding NewCountry.currency}" Placeholder="Entrez la monnaie" />
 
         <Label Text="Population" />
-        <Entry Text="{Binding NewCountry.population}" Keyboard="Numeric" Placeholder="Enter population" />
+        <Entry Text="{Binding NewCountry.population}" Keyboard="Numeric" Placeholder="Entrez la population" />
 
-        <Label Text="Flag" />
-        <Image Source="{Binding NewCountry.media.flag}" HeightRequest="100" WidthRequest="150" />
+        <Label Text="Drapeau" />
+        <Entry Text="{Binding NewCountry.media.flag}" Placeholder="Entrez le lien du drapeau" />
 
-        <Button Text="Upload Flag Image" Command="{Binding PickImageCommand}" BackgroundColor="Blue" TextColor="White" />
-
-        <Button Text="Add Country" Command="{Binding AddCountryCommand}" BackgroundColor="Green" TextColor="White" />
-
+        <!-- Utilisez Command au lieu de Clicked -->
+        <Button Text="Ajouter le pays" 
+                Command="{Binding AddCountryCommand}"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                Margin="0,10,0,10" />
     </VerticalStackLayout>
 
 </ContentPage>

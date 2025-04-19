@@ -27,7 +27,7 @@
         </Tab>
         <Tab Title="Fun"
              Icon="party.png">
-            <ShellContent ContentTemplate="{DataTemplate view:Main}" />
+            <ShellContent ContentTemplate="{DataTemplate view:Quizz}" />
         </Tab>
     </TabBar>
 </Shell>

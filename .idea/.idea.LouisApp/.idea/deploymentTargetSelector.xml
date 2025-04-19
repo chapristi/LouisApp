@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="LouisApp">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-03-23T20:13:10.736746100Z">
+        <DropdownSelection timestamp="2025-04-19T11:30:33.891498100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=16cf8fad" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\sandl\.android\avd\Pixel_5_API_34.avd" />
             </handle>
           </Target>
         </DropdownSelection>
