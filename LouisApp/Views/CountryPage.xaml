@@ -1,19 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LouisApp.Views.CountryPage"
              xmlns:local="clr-namespace:LouisApp.ViewModels">
     
-    
-    <StackLayout Padding="10" BackgroundColor="#F4F4F4">
+    <Grid Padding="10" BackgroundColor="#F4F4F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
         <Label Text="🌍 Liste des Pays"
+               Grid.Row="0"
                FontSize="26"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                Margin="0,20,0,10"
                TextColor="#333333"/>
         
-        <ListView ItemsSource="{Binding Countries}" HasUnevenRows="True" SeparatorVisibility="Default" x:Name="CountriesListView"  ItemSelected="OnCountrySelected">
+        <ListView Grid.Row="1" 
+                  ItemsSource="{Binding Countries}" 
+                  HasUnevenRows="True" 
+                  SeparatorVisibility="Default" 
+                  x:Name="CountriesListView"
+                  ItemSelected="OnCountrySelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -25,5 +36,15 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+        
+        <Button Grid.Row="2"
+                Text="Ajouter un pays" 
+                Clicked="OnAddCountryClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                FontAttributes="Bold"
+                Margin="0,10,0,10"
+                HeightRequest="50"
+                CornerRadius="25"/>
+    </Grid>
 </ContentPage>

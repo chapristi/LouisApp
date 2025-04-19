@@ -1,4 +1,4 @@
-﻿using LouisApp.Models;
+﻿using LouisApp.Models;  
 using LouisApp.Services;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 
 namespace LouisApp.ViewModels
 {
@@ -14,8 +15,6 @@ namespace LouisApp.ViewModels
     {
         private readonly CountryService _countryService;
         private ObservableCollection<Country> _countries;
-        private static CountryViewModel _countryViewModel;
-
 
         public ObservableCollection<Country> Countries
         {
@@ -51,11 +50,27 @@ namespace LouisApp.ViewModels
         {
             _countryService = new CountryService();
             Countries = new ObservableCollection<Country>();
+            
+            // S'abonner aux messages pour ajouter un pays
+            MessagingCenter.Subscribe<AddCountryViewModel, Country>(this, "AddCountry", (sender, country) => 
+            {
+                // Utiliser le Dispatcher pour s'assurer que c'est sur le thread UI
+                Application.Current.Dispatcher.Dispatch(() => 
+                {
+                    Countries.Insert(0, country);
+                    Debug.WriteLine($"Country received and added: {country.name}");
+                });
+            });
+            
             Task.Run(async () => 
             {
                 await LoadCountriesAsync();
             });
-           
+        }
+
+        ~CountryViewModel()
+        {
+            MessagingCenter.Unsubscribe<AddCountryViewModel, Country>(this, "AddCountry");
         }
 
         public async Task LoadCountriesAsync()

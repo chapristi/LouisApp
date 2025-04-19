@@ -19,7 +19,7 @@ public static class MauiProgram
 
         // Enregistrez vos services ici
         builder.Services.AddSingleton<CountryViewModel>();
-        builder.Services.AddTransient<Add>();
+        builder.Services.AddTransient<AddCountryPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

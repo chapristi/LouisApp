@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LouisApp.ViewModels;
+using System.Diagnostics;
 
 namespace LouisApp.Views;
 
-public partial class Add : ContentPage
+public partial class AddCountryPage : ContentPage
 {
-    public Add(CountryViewModel countryViewModel)
+    public AddCountryPage()
     {
         InitializeComponent();
-        BindingContext = new AddCountryViewModel(countryViewModel);
+        BindingContext = new AddCountryViewModel();
     }
-  
 }

@@ -12,7 +12,6 @@ namespace LouisApp.ViewModels
     public class AddCountryViewModel : INotifyPropertyChanged
     {
         private Country _newCountry;
-        private readonly CountryViewModel _countryViewModel;
         private bool _isBusy;
 
         public Country NewCountry
@@ -44,11 +43,8 @@ namespace LouisApp.ViewModels
 
         public ICommand AddCountryCommand { get; }
 
-        public AddCountryViewModel(CountryViewModel countryViewModel)
+        public AddCountryViewModel()
         {
-            _countryViewModel = countryViewModel ?? throw new ArgumentNullException(nameof(countryViewModel));
-            Debug.WriteLine($"CountryViewModel instance: {_countryViewModel.GetHashCode()}");
-            
             ResetNewCountry();
             AddCountryCommand = new Command(ExecuteAddCountry, () => !IsBusy);
         }
@@ -91,9 +87,10 @@ namespace LouisApp.ViewModels
                     media = new Media { flag = NewCountry.media?.flag }
                 };
 
-                _countryViewModel.Countries.Insert(0,countryToAdd);
+                // Envoyer un message pour ajouter le pays
+                MessagingCenter.Send<AddCountryViewModel, Country>(this, "AddCountry", countryToAdd);
                 
-                Debug.WriteLine($"Country added to ViewModel: {countryToAdd.name}");
+                Debug.WriteLine($"Country message sent: {countryToAdd.name}");
 
                 await Application.Current.MainPage.DisplayAlert(
                     "Succès", $"Le pays {countryToAdd.name} a été ajouté avec succès!", "OK");
