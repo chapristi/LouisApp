@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LouisApp.Views;
 
-public partial class Test : ContentPage
+public partial class Gif : ContentPage
 {
-    public Test()
+    public Gif()
     {
         InitializeComponent();
     }

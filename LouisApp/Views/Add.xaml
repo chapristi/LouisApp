@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LouisApp.Views.AddCountryPage"
+             Title="Ajouter un pays">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="🌍 Ajouter un nouveau pays"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"
+                   TextColor="#333333"/>
+            
+            <Frame BorderColor="#E0E0E0" HasShadow="True" Padding="15" CornerRadius="8">
+                <StackLayout Spacing="15">
+                    <Label Text="Nom du pays *" FontAttributes="Bold"/>
+                    <Entry Text="{Binding NewCountry.name}" Placeholder="Ex: France"/>
+                    
+                    <Label Text="Capitale *" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Entry Text="{Binding NewCountry.capital}" Placeholder="Ex: Paris"/>
+                    
+                    <Label Text="Devise" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Entry Text="{Binding NewCountry.currency}" Placeholder="Ex: Euro"/>
+                    
+                    <Label Text="Population" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Entry Text="{Binding NewCountry.population}" Placeholder="Ex: 67000000" Keyboard="Numeric"/>
+                    
+                    <Label Text="URL du drapeau" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Entry Text="{Binding NewCountry.media.flag}" Placeholder="Ex: https://example.com/drapeau.png"/>
+                    
+                    <Label Text="* Champs obligatoires" TextColor="Gray" FontSize="12" Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
+            
+            <Button Text="Ajouter"
+                    Command="{Binding AddCountryCommand}"
+                    IsEnabled="{Binding !IsBusy}"
+                    BackgroundColor="#2B3A67"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    Margin="0,20,0,0"/>
+            
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="#4CAF50"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LouisApp.Views.Main"
+             BackgroundColor="#f8f9fa">
+
+    <ContentPage.Resources>
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansExtraBold" />
+            <Setter Property="TextColor" Value="#2B3A67" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+     
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#4361EE" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="25" />
+            <Setter Property="Padding" Value="24,12" />
+            <Setter Property="Margin" Value="0,16,0,0" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="8" Margin="0,20,0,30">
+            <Label Text="DÉCOUVERTE DU MONDE"
+                   FontSize="14"
+                   TextColor="#4361EE"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+                   
+            <Label Text="Explorez les Pays et Cultures"
+                   Style="{StaticResource HeaderLabelStyle}"
+                   FontSize="28" />
+                   
+            <Label Text="Parcourez les destinations et découvrez leurs richesses"
+                   FontSize="16"
+                   TextColor="#666666"
+                   HorizontalOptions="Center" />
+                   
+            <BoxView HeightRequest="4" 
+                     WidthRequest="60" 
+                     Color="#4361EE" 
+                     HorizontalOptions="Center"
+                     Margin="0,12,0,0" />
+        </VerticalStackLayout>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1" RowDefinitions="*,Auto" RowSpacing="20">
+            <!-- Carousel with indicators -->
+            <Frame Grid.Row="0" 
+                   CornerRadius="16" 
+                   Padding="0" 
+                   HasShadow="True"
+                   IsClippedToBounds="True">
+                <Grid RowDefinitions="*,Auto">
+                    <CarouselView Grid.Row="0" 
+                                 x:Name="destinationsCarousel"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Fill"
+                                 Loop="True">
+                        <CarouselView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>corfu.jpg</x:String>
+                                <x:String>paris.jpg</x:String>
+                                <x:String>new_york.jpg</x:String>
+                            </x:Array>
+                        </CarouselView.ItemsSource>
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Source="{Binding .}" 
+                                           Aspect="AspectFill"
+                                           HorizontalOptions="Fill" 
+                                           VerticalOptions="Fill" />
+                                           
+                                    <BoxView BackgroundColor="Black"
+                                             Opacity="0.3"
+                                             HorizontalOptions="Fill"
+                                             VerticalOptions="Fill" />
+                                             
+                                    <VerticalStackLayout VerticalOptions="End"
+                                                         HorizontalOptions="Start"
+                                                         Padding="20,0,0,20">
+                                        <Label Text="{Binding ., StringFormat='Découvrir {0}'}"
+                                               TextColor="White"
+                                               FontSize="24"
+                                               FontAttributes="Bold" />
+                                        <Label Text="Explorer cette destination"
+                                               TextColor="White"
+                                               FontSize="14"
+                                               Opacity="0.9" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    
+                    <IndicatorView Grid.Row="1"
+                                   x:Name="indicatorView"
+                                   IndicatorColor="#CCCCCC"
+                                   SelectedIndicatorColor="#4361EE"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="0,16"
+                                   IndicatorSize="10" />
+                </Grid>
+            </Frame>
+            
+            <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="16">
+                <Frame Grid.Column="0"
+                       CornerRadius="12"
+                       HasShadow="True"
+                       Padding="0">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="corfu.jpg"
+                               Aspect="AspectFill"
+                               HeightRequest="120" />
+                        <BoxView Grid.Row="0"
+                                 BackgroundColor="Black"
+                                 Opacity="0.2" />
+                        <Label Grid.Row="1"
+                               Text="Corfou, Grèce"
+                               FontAttributes="Bold"
+                               Padding="12,8"
+                               TextColor="#333333"
+                               HorizontalOptions="Center" />
+                    </Grid>
+                </Frame>
+                
+                <Frame Grid.Column="1"
+                       CornerRadius="12"
+                       HasShadow="True"
+                       Padding="0">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="paris.jpg"
+                               Aspect="AspectFill"
+                               HeightRequest="120" />
+                        <BoxView Grid.Row="0"
+                                 BackgroundColor="Black"
+                                 Opacity="0.2" />
+                        <Label Grid.Row="1"
+                               Text="Paris, France"
+                               FontAttributes="Bold"
+                               Padding="12,8"
+                               TextColor="#333333"
+                               HorizontalOptions="Center" />
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+        
+        <Button Grid.Row="2"
+                Text="Voir la tour eiffel"
+                Clicked="OnNavigateButtonClicked"
+                Style="{StaticResource PrimaryButtonStyle}" />
+    </Grid>
+    
+</ContentPage>
