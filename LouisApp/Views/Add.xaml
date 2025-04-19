@@ -36,7 +36,7 @@
             <Button Text="Ajouter"
                     Command="{Binding AddCountryCommand}"
                     IsEnabled="{Binding !IsBusy}"
-                    BackgroundColor="#4CAF50"
+                    BackgroundColor="#2B3A67"
                     TextColor="White"
                     FontAttributes="Bold"
                     HeightRequest="50"

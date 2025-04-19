@@ -40,7 +40,7 @@
         <Button Grid.Row="2"
                 Text="Ajouter un pays" 
                 Clicked="OnAddCountryClicked"
-                BackgroundColor="#4CAF50"
+                BackgroundColor="#2B3A67"
                 TextColor="White"
                 FontAttributes="Bold"
                 Margin="0,10,0,10"

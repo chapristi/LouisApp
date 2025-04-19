@@ -4,8 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
+
 
 namespace LouisApp.ViewModels
 {
@@ -87,7 +86,6 @@ namespace LouisApp.ViewModels
                     media = new Media { flag = NewCountry.media?.flag }
                 };
 
-                // Envoyer un message pour ajouter le pays
                 MessagingCenter.Send<AddCountryViewModel, Country>(this, "AddCountry", countryToAdd);
                 
                 Debug.WriteLine($"Country message sent: {countryToAdd.name}");

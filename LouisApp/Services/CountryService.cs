@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
 using LouisApp.Models;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace LouisApp.Services
 {

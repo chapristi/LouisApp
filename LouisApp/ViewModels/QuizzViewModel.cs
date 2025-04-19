@@ -108,7 +108,6 @@
                 .Where(f => f != _correctFlag)
                 .ToList();
             
-            // Ajouter des drapeaux aléatoires
             while (options.Count < 4 && availableFlags.Count > 0)
             {
                 var randomIndex = _random.Next(availableFlags.Count);
@@ -117,7 +116,6 @@
                 options.Add(flag);
             }
             
-            // Mélanger les options
             FlagOptions = new ObservableCollection<string>(options.OrderBy(x => _random.Next()));
         }
 

@@ -42,7 +42,6 @@ namespace LouisApp.ViewModels
 
         private void Countries_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            // Cette méthode est appelée chaque fois que la collection change
             Debug.WriteLine($"Collection changed: {e.Action}");
         }
 
@@ -51,10 +50,8 @@ namespace LouisApp.ViewModels
             _countryService = new CountryService();
             Countries = new ObservableCollection<Country>();
             
-            // S'abonner aux messages pour ajouter un pays
             MessagingCenter.Subscribe<AddCountryViewModel, Country>(this, "AddCountry", (sender, country) => 
             {
-                // Utiliser le Dispatcher pour s'assurer que c'est sur le thread UI
                 Application.Current.Dispatcher.Dispatch(() => 
                 {
                     Countries.Insert(0, country);
